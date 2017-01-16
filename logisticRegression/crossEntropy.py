@@ -34,3 +34,15 @@ def calc_cross_entropy(target, Y):
     return entropy
 
 print calc_cross_entropy(target, Y)
+
+# Use the closed form solution for logistic regression => Equal variances of both classes (numpy default for rand)
+# Weights only depend on the mean
+
+weights = np.array([0, 4, 4]) #bias is 0, both weights are 4
+
+output = Xb.dot(weights)
+Y = sigmoid(output)
+
+print calc_cross_entropy(target, Y)
+
+# Cross Entropy should be much lower when using the closed form solution
