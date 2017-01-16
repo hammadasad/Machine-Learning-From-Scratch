@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 numSamples = 100
 numFeatures = 2
@@ -44,5 +45,14 @@ output = Xb.dot(weights)
 Y = sigmoid(output)
 
 print calc_cross_entropy(target, Y)
+
+#Visualizing the bayes classifier
+
+plt.scatter(X[:, 0], X[:, 1], c = target, s = 100, alpha = 0.5)
+
+x_axis = np.linspace(-6 , 6, 100)
+y_axis = -x_axis
+plt.plot(x_axis, y_axis)
+plt.show()
 
 # Cross Entropy should be much lower when using the closed form solution
