@@ -39,12 +39,24 @@ print calc_cross_entropy(target, Y)
 # Use the closed form solution for logistic regression => Equal variances of both classes (numpy default for rand)
 # Weights only depend on the mean
 
-weights = np.array([0, 4, 4]) #bias is 0, both weights are 4
+# weights = np.array([0, 4, 4]) #bias is 0, both weights are 4
+weights = np.random.randn(numFeatures + 1)
 
 output = Xb.dot(weights)
 Y = sigmoid(output)
 
-print calc_cross_entropy(target, Y)
+# print calc_cross_entropy(target, Y)
+
+# Use gradient descent to optimize weights
+learningRate = 0.1
+for i in xrange(100):
+    if (i % 10 == 0):
+        print calc_cross_entropy(target, Y)
+    targetDifference = target - Y
+    weights += learningRate * targetDifference.T.dot(Xb)
+    Y = sigmoid(Xb.dot(weights))
+
+print("Final weight: ", weights)
 
 #Visualizing the bayes classifier
 
