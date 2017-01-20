@@ -1,9 +1,7 @@
 # machineLearning
-linear &amp; logistic regression - supervised
+linear &amp; logistic regression, supervised ML
 
 To do:
-
-- Perceptron
 - Naive Bayes
 - Decision Trees
 - XOR problem
